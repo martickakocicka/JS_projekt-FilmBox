@@ -209,34 +209,28 @@ popis.innerHTML += `
 
 const formular = document.querySelector("#note-form");
 const ulozit = document.querySelector("#note-form button");
-const policko = document.querySelector("#message-input")
-const checkbox = document.querySelector("#terms-checkbox")
+const policko = document.querySelector("#message-input");
+const checkbox = document.querySelector("#terms-checkbox");
+
 
 //formular.addEventListener("click", (event) => {
- // event.preventDefault();
+// event.preventDefault();
 //});
-
 
 ulozit.addEventListener("click", (event) => {
   if (policko.value.length < 1) {
     console.log("nevyplneno");
     policko.classList.add("is-invalid");
   } else {
-	policko.classList.remove("is-invalid");
-    console.log(policko.value);
-  };
-  
-  if (checkbox.checked===false){	
+    policko.classList.remove("is-invalid");
+    console.log(`Uzivatel napsal: ${policko.value}`);
+  }
+
+  if (checkbox.checked === false) {
     console.log("nezaskrtnuto");
     checkbox.classList.add("is-invalid");
   } else {
-	checkbox.classList.remove("is-invalid");    
+    checkbox.classList.remove("is-invalid");
+    formular.innerHTML = `<p class="card-text">${policko.value}</p>`;
   }
 });
-
-//formular.innerHTML+=`<p class="card-text">${policko.value}</p>`
-
-
-
-
-
