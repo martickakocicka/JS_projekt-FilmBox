@@ -212,10 +212,9 @@ const ulozit = document.querySelector("#note-form button");
 const policko = document.querySelector("#message-input");
 const checkbox = document.querySelector("#terms-checkbox");
 
-
-//formular.addEventListener("click", (event) => {
-// event.preventDefault();
-//});
+formular.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 
 ulozit.addEventListener("click", (event) => {
   if (policko.value.length < 1) {
