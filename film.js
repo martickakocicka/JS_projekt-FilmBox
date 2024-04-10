@@ -105,6 +105,7 @@ const filmy = [
   },
 ];
 
+//přiřazení filmu na stránku:
 const ajdycko = window.location.hash.slice(1);
 console.log(ajdycko);
 
@@ -207,6 +208,7 @@ popis.innerHTML += `
 									</div>
 								</div>`;
 
+//textove pole:
 const formular = document.querySelector("#note-form");
 const ulozit = document.querySelector("#note-form button");
 const policko = document.querySelector("#message-input");
@@ -233,3 +235,23 @@ ulozit.addEventListener("click", (event) => {
     formular.innerHTML = `<p class="card-text">${policko.value}</p>`;
   }
 });
+
+//datum premiéry:
+const elPremiera = document.querySelector("#premiera");
+
+
+const datum = filmy.find((polozka) => polozka.id === ajdycko);
+const datumPremiery = datum.premiera
+console.log(datumPremiery)
+
+const premiera = dayjs(datumPremiery).format("D. M. YYYY");
+console.log(`Premiera: ${premiera}`);
+
+
+//bonus:
+const prem=dayjs(datumPremiery)
+let dnes = dayjs()
+let rozdil=(dnes.diff(prem, "days"))
+
+elPremiera.innerHTML = `Premiéra <strong>${premiera}</strong>, což bylo před ${rozdil} dny.`
+
